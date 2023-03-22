@@ -14,6 +14,14 @@ export default function App() {
     { id: 4, title: "Appeler le vétérinaire", isCompleted: true },
   ]);
 
+  function renderTodoList() {
+    return todoList.map((todo) => {
+      <View style={s.cardItem} key={todo.id}>
+        <CardTodo todo={todo} />
+      </View>
+    })
+  }
+
   return (
     <>
       <SafeAreaProvider>
@@ -22,7 +30,7 @@ export default function App() {
             <Header />
           </View>
           <View style={s.body}>
-            <CardTodo todo={todoList[0]} />
+            {renderTodoList()}
           </View>
         </SafeAreaView>
       </SafeAreaProvider>
